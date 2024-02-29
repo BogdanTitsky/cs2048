@@ -4,11 +4,12 @@ using Zenject;
 
 public class Board : MonoBehaviour
 {
-    public TileState[] TileStates => _tileStates;
+    public TileStates TileStates => _tileStates;
     public List<Tile> Tiles { get; set; }
     [Inject] private readonly Tile _tilePrefab;
     [Inject] private readonly Merger _merger;
-    [Inject] private readonly TileState[] _tileStates;
+    [Inject] private Score _score;
+    [Inject] private readonly TileStates _tileStates;
     [Inject] private readonly GameController _gameController;
     [Inject] private readonly Grid _grid;
 
@@ -21,7 +22,7 @@ public class Board : MonoBehaviour
         _gameController.StartNewGame();
     }
 
-    public void ClearBoard()
+    private void ClearBoard()
     {
         foreach (Cell _cell in _grid.Cells)
         {
@@ -39,10 +40,18 @@ public class Board : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Tile _tile = Instantiate(_tilePrefab, _grid.transform);
-            _tile.SetState(_tileStates[0], 2);
+            _tile.SetState(TileStates, 2);
             _tile.Spawn(_grid.GetRandomEmptyCell());
             Tiles.Add(_tile);
         }
+    }
+
+    public void ResetBoard()
+    {
+        _score.ResetScore();
+        ClearBoard();
+        CreateTile(2);
+        enabled = true;
     }
 
     public bool CheckForGameOver()

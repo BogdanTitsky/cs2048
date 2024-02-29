@@ -116,9 +116,9 @@ public class Mover : MonoBehaviour
 
         _waiting = false;
 
-        foreach (var Tile in _board.Tiles)
+        foreach (Tile tile in _board.Tiles)
         {
-            Tile.Locked = false;
+            tile.Locked = false;
         }
 
         int numberOfTilesToCreate = Random.Range(2, 4);

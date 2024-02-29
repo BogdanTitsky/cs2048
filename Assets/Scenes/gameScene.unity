@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 429241548}
   - component: {fileID: 429241547}
   - component: {fileID: 429241546}
+  - component: {fileID: 429241549}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -404,6 +405,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429241544}
   m_CullTransparentMesh: 1
+--- !u!114 &429241549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429241544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb6be4ed81249e428215ee9a2f50ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 429241546}
 --- !u!1 &451719643
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,20 +863,9 @@ MonoBehaviour:
   grid: {fileID: 451719647}
   gameController: {fileID: 1270899790}
   tilePrefab: {fileID: 9202367034630637655, guid: 6afda352f19d78a4f9a317df3672ec49, type: 3}
-  tileStates:
-  - {fileID: 11400000, guid: f0949ff1988a0d144b724e9f2575660c, type: 2}
-  - {fileID: 11400000, guid: dc9efa0d718584c47a911eb939b94d32, type: 2}
-  - {fileID: 11400000, guid: f49faf92c9cbf1a4a9b3d3461922adfa, type: 2}
-  - {fileID: 11400000, guid: 7e38aaad98cff084d92f35bf52706e75, type: 2}
-  - {fileID: 11400000, guid: 4fb212553568b144eb45217c558c076f, type: 2}
-  - {fileID: 11400000, guid: b12ab13e5ff163b43a108168da203358, type: 2}
-  - {fileID: 11400000, guid: 5ee96c73dd678424f870a8696b9ec631, type: 2}
-  - {fileID: 11400000, guid: 45489ac29d5fe9e488aa412650bcf159, type: 2}
-  - {fileID: 11400000, guid: a988f52f8b13409498098fc9624c4cb3, type: 2}
-  - {fileID: 11400000, guid: 1027d3f348f03b44c8ae5d25414f8aa5, type: 2}
-  - {fileID: 11400000, guid: 6494e5680fd780a4bbfbd29d93ad4a7e, type: 2}
+  tileStates: {fileID: 11400000, guid: a544ae2b3db40014eb4fef02d95a0ff9, type: 2}
   score: {fileID: 1749908946}
-  gameOverPopUp: {fileID: 429241546}
+  gameOverPopUp: {fileID: 429241549}
   scoreText: {fileID: 1749908944}
 --- !u!114 &735710384
 MonoBehaviour:

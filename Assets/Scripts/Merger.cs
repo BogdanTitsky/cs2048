@@ -16,22 +16,21 @@ public class Merger : MonoBehaviour
         _board.Tiles.Remove(a);
         a.Merge(b.Cell);
 
-        int index = Mathf.Clamp(IndexOf(b.State) + 1, 0, _board.TileStates.Length - 1);
         int number = b.Number * 2;
-        b.SetState(_board.TileStates[index], number);
+        int index = GetIndex(number);
+        b.SetState(b.State, number, index);
         _score.IncreaseScore();
     }
 
-    private int IndexOf(TileState state)
+    private int GetIndex(int number)
     {
-        for (int i = 0; i < _board.TileStates.Length; i++)
-        {
-            if (state == _board.TileStates[i])
-            {
-                return i;
-            }
-        }
+        int index = 0;
 
-        return -1;
+        for (int i = 0; number != 2; i++)
+        {
+            index++;
+            number /= 2;
+        }
+        return index;
     }
 }

@@ -2,10 +2,11 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Zenject;
 
 public class Tile : MonoBehaviour
 {
-    public TileState State { get; private set; }
+    public TileStates State { get; private set; }
     public Cell Cell { get; private set; }
     public int Number { get; private set; }
     public bool Locked;
@@ -18,13 +19,13 @@ public class Tile : MonoBehaviour
         _text = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void SetState(TileState state, int number)
+    public void SetState(TileStates state, int number, int index = 0)
     {
         State = state;
         Number = number;
 
-        _background.color = state.BackgroundColor;
-        _text.color = state.TextColor;
+        _background.color = state.BackgroundColor[index];
+        _text.color = state.TextColor[index];
         _text.text = number.ToString();
     }
 

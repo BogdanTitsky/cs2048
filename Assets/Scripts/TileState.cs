@@ -1,9 +1,9 @@
 
 using UnityEngine;
+[CreateAssetMenu(menuName = "Tile States")]
 
-[CreateAssetMenu(menuName = "Tile State")]
-public class TileState : ScriptableObject
+public class TileStates : ScriptableObject
 {
-    public Color BackgroundColor;
-    public Color TextColor;
+    public Color[] BackgroundColor;
+    public Color[] TextColor;
 }
